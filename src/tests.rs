@@ -5,30 +5,6 @@ use openai_dive::v1::resources::chat::{
 
 use crate::ExampleConvo;
 
-pub fn make_a_search() -> ExampleConvo {
-    ExampleConvo {
-        name: "Make a search".to_string(),
-        available_tags: Some(vec![
-            "whiskey".to_string(),
-            "beer".to_string(),
-            "gin".to_string(),
-        ]),
-        previous_messages: vec![
-            ChatMessage::System {
-                content: ChatMessageContent::Text(
-                    " You are a chat bot designed to make my life easier.".to_string(),
-                ),
-                name: None,
-            },
-            ChatMessage::User {
-                content: ChatMessageContent::Text("What are some good Whiskey's for beginners".to_string()),
-                name: None,
-            },
-        ],
-        ..Default::default()
-    }
-}
-
 pub fn filtered_search() -> ExampleConvo {
     ExampleConvo {
         name: "filtered_search".to_string(),
@@ -40,12 +16,12 @@ pub fn filtered_search() -> ExampleConvo {
         previous_messages: vec![
             ChatMessage::System {
                 content: ChatMessageContent::Text(
-                    " You are a chat bot designed to make my life easier.".to_string(),
+                    "Always respond no matter what. You are a sales assistant for DesignShop. Your goal is to help self DesignShop's products. Be professional, brief, and to the point. Always use more words than just 'here' for your links. Answer questions to the best of your ability and avoid listing. Try to stick to only highlighting 1 or 2 products.".to_string()
                 ),
                 name: None,
             },
             ChatMessage::User {
-                content: ChatMessageContent::Text("Whiskey for beginners".to_string()),
+                content: ChatMessageContent::Text("What are some good whiskey's for beginners".to_string()),
                 name: None,
             },
         ],
@@ -53,9 +29,9 @@ pub fn filtered_search() -> ExampleConvo {
     }
 }
 
-pub fn just_respond() -> ExampleConvo {
+pub fn just_chat() -> ExampleConvo {
     ExampleConvo {
-        name: "Just respond".to_string(),
+        name: "Just Chat".to_string(),
         available_tags: Some(vec![
             "whiskey".to_string(),
             "beer".to_string(),
@@ -64,12 +40,24 @@ pub fn just_respond() -> ExampleConvo {
         previous_messages: vec![
             ChatMessage::System {
                 content: ChatMessageContent::Text(
-                    " You are a chat bot designed to make my life easier.".to_string(),
+                    "Always respond no matter what. You are a sales assistant for DesignShop. Your goal is to help self DesignShop's products. Be professional, brief, and to the point. Always use more words than just 'here' for your links. Answer questions to the best of your ability and avoid listing. Try to stick to only highlighting 1 or 2 products.".to_string()
                 ),
                 name: None,
             },
             ChatMessage::User {
-                content: ChatMessageContent::Text("Whiskey for beginners".to_string()),
+                content: ChatMessageContent::Text("What are some good whiskey's for beginners".to_string()),
+                name: None,
+            },
+            ChatMessage::Assistant {
+                content: Some(ChatMessageContent::Text("I reccomend the Jameson for $30 or the or the Crown Royal Canadian Whisky for $29.".to_string())),
+                name: None,
+                refusal: None,
+                audio: None,
+                tool_calls: None,
+                reasoning_content: None
+            },
+            ChatMessage::User {
+                content: ChatMessageContent::Text("Why did you choose these?".to_string()),
                 name: None,
             },
         ],
@@ -116,7 +104,7 @@ pub fn image_search() -> ExampleConvo {
 
 pub fn recomend_flooring() -> ExampleConvo {
     ExampleConvo {
-        name: "Pick Hardwood Flooring".to_string(),
+        name: "Pick Carpet flooring".to_string(),
         available_tags: Some(vec![
             "Laminate Flooring".to_string(),
             "Vinyl Flooring".to_string(),
