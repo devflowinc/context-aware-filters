@@ -1,0 +1,8 @@
+[package]
+name = "context-aware-filters"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+openai_dive = { version = "0.7.4", features = ["stream"] }
+tokio = { version = "1.43.0", features = ["full"] }
