@@ -90,6 +90,7 @@ checksum = "baf1de4339761588bc0619e3cbc0120ee582ebb74b53b4efbf79117bd2da40fd"
 name = "context-aware-filters"
 version = "0.1.0"
 dependencies = [
+ "ctor",
  "dotenvy",
  "futures",
  "openai_dive",
@@ -114,6 +115,12 @@ name = "core-foundation-sys"
 version = "0.8.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "773648b94d0e5d620f64f280777445740e61fe701025087ec8b57f45c791888b"
+
+[[package]]
+name = "ctor"
+version = "0.3.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f06b1425736ba96096116f063c9d10be2352a7cde0cbea829a717008e114aec9"
 
 [[package]]
 name = "darling"
